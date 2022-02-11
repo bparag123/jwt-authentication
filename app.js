@@ -7,10 +7,12 @@ const cors = require("cors")
 const MyErrors = require("./utils/customError.js")
 const csrf = require("csurf")
 const cookieParser = require("cookie-parser")
-
+const helmet = require("helmet")
 
 const PORT = process.env.PORT || 3000
 const app = express()
+
+
 
 //This will be middleware for csrf Protection
 //It will save the session key as a cookie and verify csrf with this key
@@ -30,11 +32,11 @@ app.use(cors({
     origin: function(origin, cb){
         console.log(origin);
         //If the origin is in a list of allowed Origins then it can access the resources
-        if(allowedOrigins.includes(origin)) return cb(null, true)
-        cb(MyErrors.invalid(500, "You are not allowed"))
+        if(allowedOrigins.includes(origin) || !origin) return cb(null, true)
+        cb(MyErrors.invalid(500, "You are not allowed. Please Give me Money"))
     }
 }))
-
+app.use(helmet())
 app.get("/csrftest", csrfProtect, (req, res)=>{
     res.json({
         message: "You are allowed",
