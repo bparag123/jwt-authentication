@@ -18,7 +18,7 @@ const loginController = async (req, res, next) => {
         }
 
         //Generating Access and Refresh Token
-        let accessToken = user.getToken({exp: 60*2, secret: process.env.ACCESS_TOKEN_SECRET})
+        let accessToken = user.getToken({exp: 60*60, secret: process.env.ACCESS_TOKEN_SECRET})
         let refreshToken = user.getToken({secret: process.env.REFRESH_TOKEN_SECRET})
         //Updating User with Refresh Token
         user.refreshToken = refreshToken
@@ -68,5 +68,6 @@ const logoutController = async (req, res, next) => {
     }
 
 }
+
 
 module.exports = { loginController, signUpController, logoutController }
