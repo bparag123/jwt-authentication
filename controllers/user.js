@@ -9,12 +9,14 @@ const loginController = async (req, res, next) => {
         //Finding User
         let user = await User.findOne({ username })
         if (!user) {
-            return next(MyErrors.invalid(400, "User not Found"))
+            return next(MyErrors.notFound({message: "User Not Found"}))
         }
 
         let isMatched = await user.checkPassword(password)
         if (!isMatched) {
-            return next(MyErrors.invalid(400, "Invalid Password"))
+            return next(MyErrors.unAuthorized({
+                message: "Invalid Password"
+            }))
         }
 
         //Generating Access and Refresh Token
@@ -23,19 +25,26 @@ const loginController = async (req, res, next) => {
         //Updating User with Refresh Token
         user.refreshToken = refreshToken
         await user.save()
-        return res.send({ accessToken, refreshToken })
+        return res.status(200).send({ accessToken, refreshToken })
     }
 
     else {
-        next(MyErrors.invalid(400, "Please Provide Credentials"))
+        next(MyErrors.unAuthorized({
+            message: "Please Provide Credentials"
+        }))
     }
 }
 
 const signUpController = async (req, res, next) => {
+    //Creating Model instance from the request body
     let user = new User(req.body)
     try {
         user = await user.save()
-        res.send(user)
+        const {username, email, _id}  = user
+        
+        res.status(201).json({
+            username, email, _id
+        })
     } catch (error) {
         next(error)
     }
@@ -48,20 +57,25 @@ const logoutController = async (req, res, next) => {
         
         let user = await User.findOne({ _id: data.id })
         if (!user) {
-            return next(MyErrors.invalid(400, "User not Found"))
+            return next(MyErrors.notFound({message: "User Not Found"}))
         }
         if (!user.refreshToken) {
-            return next(MyErrors.invalid(403, "Please Login to Access this End Point"))
+            return next(MyErrors.unAuthorized({
+                message: res.__("Please Login to Access this End Point")
+            }))
         }
         if (user.refreshToken !== refresh_token) {
-            return next(MyErrors.invalid(403, "Invalid Refresh Token"))
+            return next(MyErrors.unAuthorized({
+                message: "Invalid Refresh Token"
+               
+            }))
         }
 
         //Deleting The Field refreshToken From User
         user.refreshToken = undefined
         await user.save()
-        res.json({
-            message: "Logged out"
+        res.status(200).json({
+            message: res.__("Logged out")
         })
     } catch (error) {
         return next(error)

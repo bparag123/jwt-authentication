@@ -1,0 +1,7 @@
+{
+	"Logged out": "Logged out",
+	"E11000 duplicate key error collection: jwt-user.users index: username_1 dup key: { : \"d\" }": "E11000 duplicate key error collection: jwt-user.users index: username_1 dup key: { : \"d\" }",
+	"File Received": "File Received",
+	"jwt malformed": "jwt malformed",
+	"Your Are allowed": "Your Are allowed"
+}

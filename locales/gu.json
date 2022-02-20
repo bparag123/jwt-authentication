@@ -1,0 +1,14 @@
+{
+    "User Not Found" : "ઉપયોગકર્તા ના મળ્યો",
+    "Invalid Password" : "અમાન્ય પાસવર્ડ",
+    "Please Provide Credentials": "કૃપા કરીને ઓળખપત્રો આપો",
+    "Please Login to Access this End Point": "કૃપા કરીને આ અંતિમ બિંદુને ઍક્સેસ કરવા માટે લૉગિન કરો",
+    "Invalid Refresh Token": "અમાન્ય રીફ્રેશ ટોકન",
+    "Logged out": "લૉગ આઉટ કર્યું",
+    "Please Provide Authorization Token":"કૃપા કરીને ઓથોરાઈઝેશન ટોકન પ્રદાન કરો",
+    "Please Upload PDF for Posts" : "કૃપા કરીને પોસ્ટ માટે PDF અપલોડ કરો",
+    "File Received": "ફાઇલ મળી",
+    "You are not allowed to access.":"તમને ઍક્સેસ કરવાની મંજૂરી નથી.",
+    "Your Are allowed":"તમને મંજૂરી છે"
+
+}

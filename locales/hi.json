@@ -1,0 +1,15 @@
+{
+	"User Not Found": "उपयोगकर्ता नहीं मिला",
+	"Invalid Password": "अमान्य पासवर्ड",
+	"Please Provide Credentials": "कृपया क्रेडेंशियल प्रदान करें",
+	"Please Login to Access this End Point": "कृपया इस अंतिम बिंदु तक पहुंचने के लिए लॉगिन करें",
+	"Invalid Refresh Token": "अमान्य रीफ़्रेश टोकन",
+	"Logged out": "लॉग आउट किया गया",
+	"Please Provide Authorization Token": "कृपया प्राधिकरण टोकन प्रदान करें",
+	"Please Upload PDF for Posts": "कृपया पोस्ट के लिए पीडीएफ अपलोड करें",
+	"File Received": "फ़ाइल प्राप्त हुई",
+	"You are not allowed to access.": "आपको पहुंचने की अनुमति नहीं है।",
+	"Your Are allowed": "आपको अनुमति है",
+	"कृपया इस अंतिम बिंदु तक पहुंचने के लिए लॉगिन करें": "कृपया इस अंतिम बिंदु तक पहुंचने के लिए लॉगिन करें",
+	"E11000 duplicate key error collection: jwt-user.users index: username_1 dup key: { : \"d\" }": "E11000 duplicate key error collection: jwt-user.users index: username_1 dup key: { : \"d\" }"
+}
